@@ -1,0 +1,15 @@
+VIDEO: 50대 구직,쿠팡알바 가서 무슨일? 컨베이어 소분 #쿠팡알바 #물류센터알바
+URL: https://www.youtube.com/shorts/Kqg95INu5FM
+LABEL: manual
+
+[Mapped Crimes]
+- 직거래 사기 (0.4689)
+- 모욕 (0.4320)
+- 기타 사이버 사기 (0.4223)
+
+[Detected Objects]
+hand, headlight, hair, window, woman, seat, car interior, face, earring
+
+[OCR Timeline]
+[00:00~00:00] 울굴이 대역전인 빛어요 ㅋㅋㅋ
+[00:03~00:03] 50대 쿠팡리얼후기

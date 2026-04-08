@@ -1,0 +1,19 @@
+# 다운로드된 영상 파일
+downloaded_videos/*.mp4
+downloaded_videos/*.webm
+downloaded_videos/*.mkv
+downloaded_videos/*.avi
+
+# 결과 파일 (필요시 주석 해제)
+# downloaded_videos/results/
+
+# 모델 캐시
+hf_models/
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+
+# 환경 설정
+.env

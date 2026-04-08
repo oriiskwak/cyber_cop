@@ -1,0 +1,23 @@
+# Python 3.10 권장 / CUDA 12.4 기준
+# 설치: pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cu124 --extra-index-url https://pypi.org/simple
+
+# PyTorch
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+
+# 딥러닝
+transformers==4.51.3
+accelerate
+soxr
+
+# RAG / 임베딩
+sentence-transformers
+faiss-cpu
+
+# 영상 처리
+opencv-python
+Pillow
+yt-dlp
+
+# HuggingFace
+huggingface_hub>=0.26.5
