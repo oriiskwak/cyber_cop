@@ -16,7 +16,8 @@ YouTube/TikTok 영상에서 프레임을 추출하고, VLM(MiniCPM-o)으로 OCR 
 ├── video_ocr_minicpmo45_awq_rag.py    # 메인 실행 파일
 ├── requirements.txt                   # 패키지 목록
 ├── install.bat                        # Windows 설치 스크립트
-├── labels.csv                       # 테스트용 영상 URL 목록
+├── data/
+│   └── labels.csv                   # 테스트용 영상 URL 목록
 ├── rag/
 │   └── retrieval_docs.json            # 범죄 유형 문서 (20종)
 ├── downloaded_videos/
@@ -41,7 +42,7 @@ python video_ocr_minicpmo45_awq_rag.py --url "https://www.youtube.com/shorts/영
 
 ### CSV 배치
 ```bash
-python video_ocr_minicpmo45_awq_rag.py --csv "labels.csv"
+python video_ocr_minicpmo45_awq_rag.py --csv "data/labels.csv"
 ```
 
 ### 옵션
