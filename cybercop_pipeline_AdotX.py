@@ -568,7 +568,7 @@ def main():
     parser.add_argument("--csv",        default="./data/labels.csv", help="link,label 컬럼을 가진 CSV 파일 경로")
     parser.add_argument("--dir",        help="영상/이미지 파일이 담긴 디렉토리 경로")
     parser.add_argument("--out_dir",    default="./downloaded_videos")
-    parser.add_argument("--sample_sec", type=float, default=1.0,  help="프레임 샘플링 간격(초)")
+    parser.add_argument("--sample_sec", type=float, default=2.0,  help="프레임 샘플링 간격(초)")
     parser.add_argument("--max_frames", type=int,   default=10,   help="최대 프레임 수")
     parser.add_argument("--top_k",      type=int,   default=3,    help="RAG top-k")
     parser.add_argument("--model",      default=MODEL_ID,         help="HuggingFace 모델 ID")
