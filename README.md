@@ -67,7 +67,7 @@ python cybercop_pipeline_AdotX.py --dir "C:\사이버 범죄 데이터\직거래
 | 인자 | 기본값 | 설명 |
 |---|---|---|
 | `--out_dir` | `./downloaded_videos` | 결과 저장 경로 |
-| `--sample_sec` | `1.0` | 프레임 샘플링 간격 (초) |
+| `--sample_sec` | `2.0` | 프레임 샘플링 간격 (초) |
 | `--max_frames` | `10` | 영상당 최대 프레임 수 |
 | `--top_k` | `3` | RAG 검색 상위 문서 수 |
 | `--model` | `skt/A.X-4.0-VL-Light` | HuggingFace 모델 ID |
