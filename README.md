@@ -147,3 +147,116 @@ normal,https://www.tiktok.com/@user/video/xxxxx
 개인·위치정보 침해, 사이버저작권 침해, 기타 정보통신망 이용범죄,
 아동성 착취물, 불법 촬영물, 허위 영상물, 불법성 영상물, 기타 불법콘텐츠 범죄,
 스포츠 토토, 경마·경륜·경정, 카지노, 기타 사이버 도박, 명예훼손, 모욕
+
+## API 서버
+
+CLI 스크립트를 FastAPI 서버로 래핑한 `app/main.py`를 제공합니다.
+
+### 서버 실행
+
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+서버 시작 시 VLM 모델(A.X-4.0-VL-Light)과 RAG 인덱스를 자동으로 로드합니다.
+
+### 엔드포인트
+
+#### `POST /api/video` — YouTube / TikTok URL 분석
+
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---|---|---|---|
+| `url` | string (Form) | 필수 | YouTube / TikTok 영상 URL |
+| `label` | string (Form) | `manual` | 레이블 (abnormal / normal / manual) |
+| `sample_sec` | float (Form) | `1.0` | 프레임 샘플링 간격 (초) |
+| `max_frames` | int (Form) | `10` | 최대 프레임 수 |
+| `top_k` | int (Form) | `3` | RAG 검색 상위 k |
+
+```bash
+curl -X POST http://localhost:8000/api/video \
+  -F "url=https://www.youtube.com/shorts/영상ID" \
+  -F "label=abnormal"
+```
+
+---
+
+#### `POST /api/video/upload` — 영상 / 이미지 파일 업로드 분석
+
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---|---|---|---|
+| `file` | UploadFile | 필수 | 영상(.mp4 등) 또는 이미지(.jpg 등) 파일 |
+| `label` | string (Form) | `manual` | 레이블 |
+| `sample_sec` | float (Form) | `1.0` | 프레임 샘플링 간격 (초) |
+| `max_frames` | int (Form) | `10` | 최대 프레임 수 |
+| `top_k` | int (Form) | `3` | RAG 검색 상위 k |
+
+```bash
+curl -X POST http://localhost:8000/api/video/upload \
+  -F "file=@영상파일.mp4" \
+  -F "label=abnormal"
+```
+
+---
+
+#### `POST /api/video/csv` — CSV 배치 분석
+
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---|---|---|---|
+| `file` | UploadFile | 필수 | `link`, `label` 컬럼을 가진 CSV 파일 |
+| `sample_sec` | float (Form) | `1.0` | 프레임 샘플링 간격 (초) |
+| `max_frames` | int (Form) | `10` | 최대 프레임 수 |
+| `top_k` | int (Form) | `3` | RAG 검색 상위 k |
+
+```bash
+curl -X POST http://localhost:8000/api/video/csv \
+  -F "file=@data/labels.csv"
+```
+
+---
+
+### API 응답 형식
+
+**단건 (`/api/video`, `/api/video/upload`)**
+```json
+{
+  "message": "success",
+  "result": {
+    "id": "영상ID",
+    "title": "영상 제목",
+    "label": "abnormal",
+    "objects": ["smartphone", "chat_window", "person"],
+    "ocr": [
+      { "start": "00:01", "end": "00:03", "text": "지금 투자하면 300% 수익 보장!" }
+    ],
+    "rag": [
+      { "crime_type": "피싱", "text": "피싱: 개인정보 탈취를 위한 사기", "score": 0.87 }
+    ]
+  }
+}
+```
+
+**배치 (`/api/video/csv`)**
+```json
+{
+  "message": "success",
+  "count": 2,
+  "results": [
+    { "id": "...", "title": "...", "label": "...", "objects": [], "ocr": [], "rag": [], "error": null },
+    { "url": "...", "label": "...", "error": "실패 사유" }
+  ]
+}
+```
+
+### API 응답 필드
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `id` | string | 영상 고유 ID |
+| `title` | string | 영상 제목 |
+| `label` | string | 입력 레이블 |
+| `objects` | string[] | 감지된 객체 목록 (영어) |
+| `ocr[].start` | string | OCR 텍스트 시작 타임스탬프 |
+| `ocr[].end` | string | OCR 텍스트 종료 타임스탬프 |
+| `ocr[].text` | string | 추출된 OCR 텍스트 |
+| `rag[].crime_type` | string | 매칭된 범죄 유형 |
+| `rag[].score` | float | 코사인 유사도 (0~1) |
