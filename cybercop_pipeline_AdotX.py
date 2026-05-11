@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import sys
 import types
 import importlib.machinery
@@ -52,46 +52,9 @@ TORCH_DTYPE         = torch.bfloat16 if torch.cuda.is_available() else torch.flo
 DEFAULT_EMBED_MODEL = "BAAI/bge-m3"
 DEFAULT_DOCS_PATH   = "./rag/retrieval_docs.json"
 
-# Objects365 한국어 허용 클래스명 리스트 (검증용)
-ALLOWED_OBJECTS = [
-    "사람", "운동화", "의자", "기타 신발", "모자", "자동차", "램프", "안경", "병", "책상",
-    "컵", "가로등", "캐비닛/선반", "핸드백/가방", "팔찌", "접시", "그림/액자", "헬멧", "책", "장갑",
-    "수납상자", "보트", "가죽구두", "꽃", "벤치", "화분식물", "그릇/대야", "깃발", "베개", "부츠",
-    "꽃병", "마이크", "목걸이", "반지", "SUV", "와인잔", "벨트", "모니터/TV", "백팩", "우산",
-    "신호등", "스피커", "손목시계", "넥타이", "쓰레기통", "슬리퍼", "자전거", "스툴", "통/양동이", "밴",
-    "소파", "샌들", "바구니", "드럼", "펜/연필", "버스", "야생 조류", "하이힐", "오토바이", "기타",
-    "카펫", "휴대전화", "빵", "카메라", "캔류", "트럭", "라바콘", "심벌즈", "구명부표", "수건",
-    "봉제인형", "양초", "범선", "노트북", "차양막", "침대", "수도꼭지", "텐트", "말", "거울",
-    "전원 콘센트", "싱크대", "사과", "에어컨", "칼", "하키 스틱", "패들", "픽업트럭", "포크", "교통표지판",
-    "풍선", "삼각대", "개", "숟가락", "시계", "냄비", "소", "케이크", "식탁", "양",
-    "옷걸이", "칠판/화이트보드", "냅킨", "기타 물고기", "오렌지/귤", "세면도구", "키보드", "토마토", "랜턴", "작업차량",
-    "선풍기", "녹색 채소", "바나나", "야구 글러브", "비행기", "마우스", "기차", "호박", "축구공", "스키보드",
-    "여행가방", "협탁", "찻주전자", "전화기", "카트", "헤드폰", "스포츠카", "정지표지판", "디저트", "스쿠터",
-    "유모차", "크레인", "리모컨", "냉장고", "오븐", "레몬", "오리", "야구배트", "감시카메라", "고양이",
-    "저그", "브로콜리", "피아노", "피자", "코끼리", "스케이트보드", "서핑보드", "총", "스케이트/스키 신발", "가스레인지",
-    "도넛", "보타이", "당근", "변기", "연", "딸기", "기타 공", "삽", "고추", "컴퓨터 본체",
-    "화장지", "청소용품", "젓가락", "전자레인지", "비둘기", "야구공", "도마", "커피테이블", "사이드테이블", "가위",
-    "마커", "파이", "사다리", "스노보드", "쿠키", "라디에이터", "소화전", "농구공", "얼룩말", "포도",
-    "기린", "감자", "소시지", "세발자전거", "바이올린", "달걀", "소화기", "사탕", "소방차", "당구",
-    "컨버터", "욕조", "휠체어", "골프채", "서류가방", "오이", "시가/담배", "붓", "배", "대형트럭",
-    "햄버거", "환풍기", "연장선", "집게", "테니스 라켓", "폴더", "미식축구공", "이어폰", "마스크", "주전자",
-    "테니스공", "선박", "그네", "커피머신", "미끄럼틀", "마차", "양파", "그린빈", "프로젝터", "프리스비",
-    "세탁기/건조기", "닭", "프린터", "수박", "색소폰", "티슈", "칫솔", "아이스크림", "열기구", "첼로",
-    "감자튀김", "저울", "트로피", "데이터복구", "양배추", "핫도그", "블렌더", "복숭아", "밥/쌀", "지갑", "배구공",
-    "사슴", "거위", "테이프", "태블릿", "화장품", "트럼펫", "파인애플", "골프공", "구급차", "주차미터기",
-    "망고", "열쇠", "허들", "낚싯대", "메달", "플루트", "브러시", "펭귄", "메가폰", "옥수수",
-    "상추", "마늘", "백조", "헬리콥터", "대파", "샌드위치", "견과류", "속도제한표지판", "인덕션", "빗자루",
-    "트롬본", "자두", "인력거", "금붕어", "키위", "라우터/모뎀", "포커카드", "토스터", "새우", "초밥",
-    "치즈", "메모지", "체리", "펜치", "CD", "파스타", "망치", "큐대", "아보카도", "하미멜론",
-    "플라스크", "버섯", "드라이버", "비누", "리코더", "곰", "가지", "칠판지우개", "코코넛", "줄자/자",
-    "돼지", "샤워기", "지구본", "칩", "스테이크", "횡단보도표지판", "스테이플러", "낙타", "포뮬러원 경주차", "석류",
-    "식기세척기", "게", "호버보드", "미트볼", "밥솥", "튜바", "계산기", "파파야", "영양", "앵무새",
-    "물개", "나비", "덤벨", "당나귀", "사자", "소변기", "돌고래", "전동드릴", "헤어드라이어", "에그타르트",
-    "해파리", "러닝머신", "라이터", "자몽", "게임판", "대걸레", "무", "바오쯔", "표적", "프렌치",
-    "춘권", "원숭이", "토끼", "필통", "야크", "적양배추", "쌍안경", "아스파라거스", "바벨", "가리비",
-    "면류", "빗", "만두", "굴", "탁구채", "화장붓/아이라이너 펜슬", "전기톱", "지우개", "바닷가재", "두리안",
-    "오크라", "립스틱", "손거울", "컬링", "탁구"
-]
+# Objects365 한국어 허용 클래스명 리스트 (외부 JSON에서 로드)
+_ALLOWED_OBJECTS_PATH = Path(__file__).parent / "rag" / "allowed_objects.json"
+ALLOWED_OBJECTS: list = json.load(open(_ALLOWED_OBJECTS_PATH, encoding="utf-8"))
 
 # [보완] 범죄유형별 위험도 수치 맵 (이미지 데이터 기반)
 CRIME_RISK_MAP = {
@@ -167,12 +130,17 @@ def format_ts(seconds: float) -> str:
 # ──────────────────────────────────────────────
 def load_model(model_id: str):
     print(f"  [INFO] 모델 로드 중: {model_id}  (device={DEVICE}, dtype={TORCH_DTYPE})")
-    # 모델 이름에 점(.)이 포함되면 transformers 모듈 경로가 꼬이므로 로컬에 먼저 다운로드
-    safe_name = model_id.replace("/", "_").replace(".", "_")
-    local_dir = Path("./hf_models") / safe_name
-    if not local_dir.exists():
-        print(f"  [INFO] 로컬 캐시 없음 — HuggingFace에서 다운로드 중...")
-        snapshot_download(repo_id=model_id, local_dir=str(local_dir))
+    
+    if os.path.isdir(model_id):
+        local_dir = Path(model_id)
+    else:
+        # 모델 이름에 점(.)이 포함되면 transformers 모듈 경로가 꼬이므로 로컬에 먼저 다운로드
+        safe_name = model_id.replace("/", "_").replace(".", "_")
+        local_dir = Path("./hf_models") / safe_name
+        if not local_dir.exists():
+            print(f"  [INFO] 로컬 캐시 없음 — HuggingFace에서 다운로드 중...")
+            snapshot_download(repo_id=model_id, local_dir=str(local_dir))
+            
     print(f"  [INFO] 로컬 경로에서 로드: {local_dir}")
     processor = AutoProcessor.from_pretrained(
         str(local_dir),
@@ -294,7 +262,7 @@ def sample_frames(video_path: Path, every_n: float, max_f: int) -> list[tuple[fl
         if idx % step == 0:
             image = Image.fromarray(cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB))
             frames.append((idx / fps, image))
-            if len(frames) >= max_f:
+            if max_f > 0 and len(frames) >= max_f:
                 break
         idx += 1
     cap.release()
@@ -406,7 +374,7 @@ def process_single_video(
         v_path, info = download_video(url, out_dir)
         frames = sample_frames(v_path, args.sample_sec, args.max_frames)
 
-        raw_results, all_objs = [], set()
+        raw_results, obj_counts = [], {}
         for i, (sec, img) in enumerate(frames, 1):
             res = analyze_one_frame(processor, model, img, DEFAULT_PROMPT, obj_mapper)
             print(f"    - Frame {i}/{len(frames)} ({format_ts(sec)}) [{res['inference_time']:.2f}s]")
@@ -416,7 +384,8 @@ def process_single_video(
                 "text": res["ocr_text"],
                 "objects": res["object_list"],
             })
-            all_objs.update(res["object_list"])
+            for obj in res["object_list"]:
+                obj_counts[obj] = obj_counts.get(obj, 0) + 1
 
         # OCR 병합 (중복 제거)
         merged_ocr = []
@@ -430,9 +399,15 @@ def process_single_video(
             else:
                 merged_ocr[-1]["end"] = r["ts"]
 
+        # Voting: 2프레임 이상 등장한 객체만 유지 (프레임이 1개인 경우는 예외)
+        if len(frames) > 1:
+            final_objs = [obj for obj, count in obj_counts.items() if count >= 2]
+        else:
+            final_objs = list(obj_counts.keys())
+
         # RAG 검색
         ocr_all = " | ".join([m["text"] for m in merged_ocr])
-        obj_all = ", ".join(list(all_objs))
+        obj_all = ", ".join(final_objs)
         mapped  = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
 
         # 결과 저장
@@ -442,7 +417,7 @@ def process_single_video(
             "url": url,
             "title": info.get("title"),
             "label": label,
-            "objects": list(all_objs),
+            "objects": final_objs,
             "ocr": merged_ocr,
             "rag": mapped,
             "total_inference_time": round(video_elapsed, 2)
@@ -501,7 +476,7 @@ def process_local_file(
         else:
             frames = sample_frames(file_path, args.sample_sec, args.max_frames)
 
-        raw_results, all_objs = [], set()
+        raw_results, obj_counts = [], {}
         for i, (sec, img) in enumerate(frames, 1):
             res = analyze_one_frame(processor, model, img, DEFAULT_PROMPT, obj_mapper)
             print(f"    - Frame {i}/{len(frames)} ({format_ts(sec)}) [{res['inference_time']:.2f}s]")
@@ -511,7 +486,8 @@ def process_local_file(
                 "text": res["ocr_text"],
                 "objects": res["object_list"],
             })
-            all_objs.update(res["object_list"])
+            for obj in res["object_list"]:
+                obj_counts[obj] = obj_counts.get(obj, 0) + 1
 
         merged_ocr = []
         for r in raw_results:
@@ -524,8 +500,14 @@ def process_local_file(
             else:
                 merged_ocr[-1]["end"] = r["ts"]
 
+        # Voting: 2프레임 이상 등장한 객체만 유지 (프레임이 1개인 경우는 예외)
+        if len(frames) > 1:
+            final_objs = [obj for obj, count in obj_counts.items() if count >= 2]
+        else:
+            final_objs = list(obj_counts.keys())
+
         ocr_all = " | ".join([m["text"] for m in merged_ocr])
-        obj_all = ", ".join(list(all_objs))
+        obj_all = ", ".join(final_objs)
         mapped  = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
 
         payload = {
@@ -533,7 +515,7 @@ def process_local_file(
             "url": str(file_path),
             "title": file_path.name,
             "label": label,
-            "objects": list(all_objs),
+            "objects": final_objs,
             "ocr": merged_ocr,
             "rag": mapped,
         }
@@ -567,9 +549,9 @@ def main():
     parser.add_argument("--file",       help="단일 로컬 영상/이미지 파일 경로")
     parser.add_argument("--csv",        default="./data/labels.csv", help="link,label 컬럼을 가진 CSV 파일 경로")
     parser.add_argument("--dir",        help="영상/이미지 파일이 담긴 디렉토리 경로")
-    parser.add_argument("--out_dir",    default="./downloaded_videos")
+    parser.add_argument("--out_dir",    default="./output_thecheat2")
     parser.add_argument("--sample_sec", type=float, default=2.0,  help="프레임 샘플링 간격(초)")
-    parser.add_argument("--max_frames", type=int,   default=10,   help="최대 프레임 수")
+    parser.add_argument("--max_frames", type=int,   default=1000, help="최대 프레임 수")
     parser.add_argument("--top_k",      type=int,   default=3,    help="RAG top-k")
     parser.add_argument("--model",      default=MODEL_ID,         help="HuggingFace 모델 ID")
     args = parser.parse_args()
@@ -583,7 +565,7 @@ def main():
     # RAG 인덱스 + ObjectMapper
     print("[2/3] Preparing RAG Index & Object Mapper...")
     rag = CrimeRAG(DEFAULT_DOCS_PATH)
-    obj_mapper = ObjectMapper(rag.model)
+    obj_mapper = ObjectMapper(rag.model, threshold=0.75)
 
     # 배치 처리
     print("[3/3] Starting Batch Analysis...")
@@ -599,8 +581,11 @@ def main():
         with open(args.csv, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
+                url = row.get("link") or row.get("url")
+                if not url:
+                    continue
                 process_single_video(
-                    row["link"], row.get("label", "unknown"),
+                    url, row.get("label", "unknown"),
                     processor, model, rag, obj_mapper, args
                 )
     elif args.dir:

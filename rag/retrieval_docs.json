@@ -2150,5 +2150,1790 @@
         "단축링크"
       ]
     }
+  },
+  {
+    "doc_id": "OBJ_0001",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 차트. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 차트",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 1.0,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0002",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 경고 문구. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "경고 문구",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 1.0,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0003",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 컴퓨터 화면. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "컴퓨터 화면",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 1.0,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0004",
+    "crime_id": "C018",
+    "major_category": "사이버 성폭력",
+    "sub_category": "허위 영상물",
+    "crime_type": "허위 영상물",
+    "source_type": "object_keyword",
+    "text": "허위 영상물 관련 영상에서 자주 등장하는 시각적 객체: 딥페이크. 사이버범죄 신호: 딥페이크.",
+    "metadata": {
+      "object_name": "딥페이크",
+      "crime_signal": "딥페이크",
+      "crime_signal_score": 1.0,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0005",
+    "crime_id": "C016",
+    "major_category": "사이버 성폭력",
+    "sub_category": "아동성 착취물",
+    "crime_type": "아동성 착취물",
+    "source_type": "object_keyword",
+    "text": "아동성 착취물 관련 영상에서 자주 등장하는 시각적 객체: QR 코드. 사이버범죄 신호: QR코드.",
+    "metadata": {
+      "object_name": "QR 코드",
+      "crime_signal": "QR코드",
+      "crime_signal_score": 0.948,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0006",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 휴대폰 화면. 사이버범죄 신호: 스마트폰 화면.",
+    "metadata": {
+      "object_name": "휴대폰 화면",
+      "crime_signal": "스마트폰 화면",
+      "crime_signal_score": 0.9,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0007",
+    "crime_id": "C026",
+    "major_category": "기타 불법콘텐츠 범죄",
+    "sub_category": "기타 불법콘텐츠 범죄",
+    "crime_type": "기타 불법콘텐츠 범죄",
+    "source_type": "object_keyword",
+    "text": "기타 불법콘텐츠 범죄 관련 영상에서 자주 등장하는 시각적 객체: 카톡문의. 사이버범죄 신호: 카톡.",
+    "metadata": {
+      "object_name": "카톡문의",
+      "crime_signal": "카톡",
+      "crime_signal_score": 0.897,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0008",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 텔레그램 앱. 사이버범죄 신호: 텔레그램.",
+    "metadata": {
+      "object_name": "텔레그램 앱",
+      "crime_signal": "텔레그램",
+      "crime_signal_score": 0.893,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0009",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 메시지. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "메시지",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.885,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0010",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.852,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0011",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 차트. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "차트",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.851,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0012",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 입금. 사이버범죄 신호: 입금 화면.",
+    "metadata": {
+      "object_name": "입금",
+      "crime_signal": "입금 화면",
+      "crime_signal_score": 0.848,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0013",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 채팅방. 사이버범죄 신호: 채팅 화면.",
+    "metadata": {
+      "object_name": "채팅방",
+      "crime_signal": "채팅 화면",
+      "crime_signal_score": 0.835,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0014",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 컴퓨터. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "컴퓨터",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.821,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0015",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: \"휴대폰 화면\". 사이버범죄 신호: 스마트폰 화면.",
+    "metadata": {
+      "object_name": "\"휴대폰 화면\"",
+      "crime_signal": "스마트폰 화면",
+      "crime_signal_score": 0.816,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0016",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 안내 문구. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "안내 문구",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.802,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0017",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 웹캠. 사이버범죄 신호: 몸캠.",
+    "metadata": {
+      "object_name": "웹캠",
+      "crime_signal": "몸캠",
+      "crime_signal_score": 0.8,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0018",
+    "crime_id": "C013",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "개인 위치정보 침해",
+    "crime_type": "개인 위치정보 침해",
+    "source_type": "object_keyword",
+    "text": "개인 위치정보 침해 관련 영상에서 자주 등장하는 시각적 객체: 인증. 사이버범죄 신호: 수익 인증.",
+    "metadata": {
+      "object_name": "인증",
+      "crime_signal": "수익 인증",
+      "crime_signal_score": 0.79,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0019",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 메시지 목록. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "메시지 목록",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.779,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0020",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 문구. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "문구",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.777,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0021",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 틱톡 로고. 사이버범죄 신호: 틱톡 화면.",
+    "metadata": {
+      "object_name": "틱톡 로고",
+      "crime_signal": "틱톡 화면",
+      "crime_signal_score": 0.777,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0022",
+    "crime_id": "C016",
+    "major_category": "사이버 성폭력",
+    "sub_category": "아동성 착취물",
+    "crime_type": "아동성 착취물",
+    "source_type": "object_keyword",
+    "text": "아동성 착취물 관련 영상에서 자주 등장하는 시각적 객체: 내역. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "내역",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.775,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0023",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 가격. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 가격",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.772,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0024",
+    "crime_id": "C007",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "파밍 (Pharming)",
+    "crime_type": "파밍",
+    "source_type": "object_keyword",
+    "text": "파밍 관련 영상에서 자주 등장하는 시각적 객체: 홈페이지. 사이버범죄 신호: 웹사이트 화면.",
+    "metadata": {
+      "object_name": "홈페이지",
+      "crime_signal": "웹사이트 화면",
+      "crime_signal_score": 0.764,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0025",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 대화창. 사이버범죄 신호: 채팅 화면.",
+    "metadata": {
+      "object_name": "대화창",
+      "crime_signal": "채팅 화면",
+      "crime_signal_score": 0.754,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0026",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 계산대 위 모니터. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "계산대 위 모니터",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.754,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0027",
+    "crime_id": "C018",
+    "major_category": "사이버 성폭력",
+    "sub_category": "허위 영상물",
+    "crime_type": "허위 영상물",
+    "source_type": "object_keyword",
+    "text": "허위 영상물 관련 영상에서 자주 등장하는 시각적 객체: 가짜 의사. 사이버범죄 신호: 가짜 쇼핑몰.",
+    "metadata": {
+      "object_name": "가짜 의사",
+      "crime_signal": "가짜 쇼핑몰",
+      "crime_signal_score": 0.735,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0028",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 정보. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 정보",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.733,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0029",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 뉴스 화면. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "뉴스 화면",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.732,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0030",
+    "crime_id": "C007",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "파밍 (Pharming)",
+    "crime_type": "파밍",
+    "source_type": "object_keyword",
+    "text": "파밍 관련 영상에서 자주 등장하는 시각적 객체: 계좌. 사이버범죄 신호: 계좌이체 화면.",
+    "metadata": {
+      "object_name": "계좌",
+      "crime_signal": "계좌이체 화면",
+      "crime_signal_score": 0.73,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0031",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 거래. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 거래",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.729,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0032",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 모니터. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "모니터",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.727,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0033",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 거래량. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "거래량",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.725,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0034",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 캔들 차트. 사이버범죄 신호: 코인 차트.",
+    "metadata": {
+      "object_name": "캔들 차트",
+      "crime_signal": "코인 차트",
+      "crime_signal_score": 0.723,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0035",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 하단. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 하단",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.721,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0036",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 중앙. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 중앙",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.721,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0037",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 금액. 사이버범죄 신호: 송금 내역.",
+    "metadata": {
+      "object_name": "금액",
+      "crime_signal": "송금 내역",
+      "crime_signal_score": 0.715,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0038",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 오른쪽 상단. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 오른쪽 상단",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.714,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0039",
+    "crime_id": "C026",
+    "major_category": "기타 불법콘텐츠 범죄",
+    "sub_category": "기타 불법콘텐츠 범죄",
+    "crime_type": "기타 불법콘텐츠 범죄",
+    "source_type": "object_keyword",
+    "text": "기타 불법콘텐츠 범죄 관련 영상에서 자주 등장하는 시각적 객체: 텍스트. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "텍스트",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.697,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0040",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 그래프. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "그래프",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.687,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0041",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 문구류. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "문구류",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.678,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0042",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 안내문. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "안내문",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.67,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0043",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 광고. 사이버범죄 신호: 사기 광고.",
+    "metadata": {
+      "object_name": "광고",
+      "crime_signal": "사기 광고",
+      "crime_signal_score": 0.668,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0044",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 광고판. 사이버범죄 신호: 사기 광고.",
+    "metadata": {
+      "object_name": "광고판",
+      "crime_signal": "사기 광고",
+      "crime_signal_score": 0.658,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0045",
+    "crime_id": "C026",
+    "major_category": "기타 불법콘텐츠 범죄",
+    "sub_category": "기타 불법콘텐츠 범죄",
+    "crime_type": "기타 불법콘텐츠 범죄",
+    "source_type": "object_keyword",
+    "text": "기타 불법콘텐츠 범죄 관련 영상에서 자주 등장하는 시각적 객체: 글씨. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "글씨",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.643,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0046",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 시간 표시. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "시간 표시",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.631,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0047",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 리뷰. 사이버범죄 신호: SNS 게시물.",
+    "metadata": {
+      "object_name": "리뷰",
+      "crime_signal": "SNS 게시물",
+      "crime_signal_score": 0.629,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0048",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 서류. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "서류",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.627,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0049",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 건물 외벽. 사이버범죄 신호: 웹사이트 화면.",
+    "metadata": {
+      "object_name": "건물 외벽",
+      "crime_signal": "웹사이트 화면",
+      "crime_signal_score": 0.622,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0050",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 현수막. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "현수막",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.619,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0051",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 패딩. 사이버범죄 신호: 리딩방.",
+    "metadata": {
+      "object_name": "패딩",
+      "crime_signal": "리딩방",
+      "crime_signal_score": 0.607,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0052",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 창문. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "창문",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.606,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0053",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 간판. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "간판",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.604,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0054",
+    "crime_id": "C002",
+    "major_category": "사이버 사기",
+    "sub_category": "쇼핑몰 사기",
+    "crime_type": "쇼핑몰 사기",
+    "source_type": "object_keyword",
+    "text": "쇼핑몰 사기 관련 영상에서 자주 등장하는 시각적 객체: 가격 정보. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "가격 정보",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.601,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0055",
+    "crime_id": "C017",
+    "major_category": "사이버 성폭력",
+    "sub_category": "불법 촬영물",
+    "crime_type": "불법 촬영물",
+    "source_type": "object_keyword",
+    "text": "불법 촬영물 관련 영상에서 자주 등장하는 시각적 객체: 사진. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "사진",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.596,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0056",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 로고. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "로고",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.593,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0057",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 이름. 사이버범죄 신호: 카톡.",
+    "metadata": {
+      "object_name": "이름",
+      "crime_signal": "카톡",
+      "crime_signal_score": 0.59,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0058",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 벽. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "벽",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.581,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0059",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 프로그램 로고. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "프로그램 로고",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.577,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0060",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 카드. 사이버범죄 신호: 코인 차트.",
+    "metadata": {
+      "object_name": "카드",
+      "crime_signal": "코인 차트",
+      "crime_signal_score": 0.575,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0061",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 버튼. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "버튼",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.573,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0062",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 티셔츠. 사이버범죄 신호: 텔레그램.",
+    "metadata": {
+      "object_name": "티셔츠",
+      "crime_signal": "텔레그램",
+      "crime_signal_score": 0.572,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0063",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 제목. 사이버범죄 신호: 사기 신고.",
+    "metadata": {
+      "object_name": "제목",
+      "crime_signal": "사기 신고",
+      "crime_signal_score": 0.57,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0064",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 차량 내부. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "차량 내부",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.57,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0065",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 자막. 사이버범죄 신호: 카카오톡.",
+    "metadata": {
+      "object_name": "자막",
+      "crime_signal": "카카오톡",
+      "crime_signal_score": 0.566,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0066",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 포스터. 사이버범죄 신호: 배팅 화면.",
+    "metadata": {
+      "object_name": "포스터",
+      "crime_signal": "배팅 화면",
+      "crime_signal_score": 0.565,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0067",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 프로그램 제목. 사이버범죄 신호: 카톡.",
+    "metadata": {
+      "object_name": "프로그램 제목",
+      "crime_signal": "카톡",
+      "crime_signal_score": 0.56,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0068",
+    "crime_id": "C016",
+    "major_category": "사이버 성폭력",
+    "sub_category": "아동성 착취물",
+    "crime_type": "아동성 착취물",
+    "source_type": "object_keyword",
+    "text": "아동성 착취물 관련 영상에서 자주 등장하는 시각적 객체: 인터뷰 내용. 사이버범죄 신호: 오픈채팅.",
+    "metadata": {
+      "object_name": "인터뷰 내용",
+      "crime_signal": "오픈채팅",
+      "crime_signal_score": 0.558,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0069",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 상자. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "상자",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.557,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0070",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 바닥. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "바닥",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.556,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0071",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 숫자. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "숫자",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.555,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0072",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 커튼. 사이버범죄 신호: 채팅 화면.",
+    "metadata": {
+      "object_name": "커튼",
+      "crime_signal": "채팅 화면",
+      "crime_signal_score": 0.553,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0073",
+    "crime_id": "C016",
+    "major_category": "사이버 성폭력",
+    "sub_category": "아동성 착취물",
+    "crime_type": "아동성 착취물",
+    "source_type": "object_keyword",
+    "text": "아동성 착취물 관련 영상에서 자주 등장하는 시각적 객체: 날짜. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "날짜",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.553,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0074",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 셔츠. 사이버범죄 신호: 오픈채팅.",
+    "metadata": {
+      "object_name": "셔츠",
+      "crime_signal": "오픈채팅",
+      "crime_signal_score": 0.552,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0075",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 바지. 사이버범죄 신호: 몸캠.",
+    "metadata": {
+      "object_name": "바지",
+      "crime_signal": "몸캠",
+      "crime_signal_score": 0.552,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0076",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 틱톡. 사이버범죄 신호: 틱톡 화면.",
+    "metadata": {
+      "object_name": "틱톡",
+      "crime_signal": "틱톡 화면",
+      "crime_signal_score": 0.874,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0077",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: MSN 메신저. 사이버범죄 신호: 메신저 앱.",
+    "metadata": {
+      "object_name": "MSN 메신저",
+      "crime_signal": "메신저 앱",
+      "crime_signal_score": 0.803,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0078",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 웹캠. 사이버범죄 신호: 몸캠.",
+    "metadata": {
+      "object_name": "웹캠",
+      "crime_signal": "몸캠",
+      "crime_signal_score": 0.8,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0079",
+    "crime_id": "C013",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "개인 위치정보 침해",
+    "crime_type": "개인 위치정보 침해",
+    "source_type": "object_keyword",
+    "text": "개인 위치정보 침해 관련 영상에서 자주 등장하는 시각적 객체: 인증. 사이버범죄 신호: 수익 인증.",
+    "metadata": {
+      "object_name": "인증",
+      "crime_signal": "수익 인증",
+      "crime_signal_score": 0.79,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0080",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 메시지 목록. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "메시지 목록",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.779,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0081",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.778,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0082",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 문구. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "문구",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.777,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0083",
+    "crime_id": "C003",
+    "major_category": "사이버 사기",
+    "sub_category": "게임 사기",
+    "crime_type": "게임 사기",
+    "source_type": "object_keyword",
+    "text": "게임 사기 관련 영상에서 자주 등장하는 시각적 객체: 틱톡 로고. 사이버범죄 신호: 틱톡 화면.",
+    "metadata": {
+      "object_name": "틱톡 로고",
+      "crime_signal": "틱톡 화면",
+      "crime_signal_score": 0.777,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0084",
+    "crime_id": "C016",
+    "major_category": "사이버 성폭력",
+    "sub_category": "아동성 착취물",
+    "crime_type": "아동성 착취물",
+    "source_type": "object_keyword",
+    "text": "아동성 착취물 관련 영상에서 자주 등장하는 시각적 객체: 내역. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "내역",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.775,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0085",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 가격. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 가격",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.772,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0086",
+    "crime_id": "C007",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "파밍 (Pharming)",
+    "crime_type": "파밍",
+    "source_type": "object_keyword",
+    "text": "파밍 관련 영상에서 자주 등장하는 시각적 객체: 홈페이지. 사이버범죄 신호: 웹사이트 화면.",
+    "metadata": {
+      "object_name": "홈페이지",
+      "crime_signal": "웹사이트 화면",
+      "crime_signal_score": 0.764,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0087",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 대화창. 사이버범죄 신호: 채팅 화면.",
+    "metadata": {
+      "object_name": "대화창",
+      "crime_signal": "채팅 화면",
+      "crime_signal_score": 0.754,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0088",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 계산대 위 모니터. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "계산대 위 모니터",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.754,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0089",
+    "crime_id": "C018",
+    "major_category": "사이버 성폭력",
+    "sub_category": "허위 영상물",
+    "crime_type": "허위 영상물",
+    "source_type": "object_keyword",
+    "text": "허위 영상물 관련 영상에서 자주 등장하는 시각적 객체: 가짜 의사. 사이버범죄 신호: 가짜 쇼핑몰.",
+    "metadata": {
+      "object_name": "가짜 의사",
+      "crime_signal": "가짜 쇼핑몰",
+      "crime_signal_score": 0.735,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0090",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 정보. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 정보",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.733,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0091",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 뉴스 화면. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "뉴스 화면",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.732,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0092",
+    "crime_id": "C007",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "파밍 (Pharming)",
+    "crime_type": "파밍",
+    "source_type": "object_keyword",
+    "text": "파밍 관련 영상에서 자주 등장하는 시각적 객체: 계좌. 사이버범죄 신호: 계좌이체 화면.",
+    "metadata": {
+      "object_name": "계좌",
+      "crime_signal": "계좌이체 화면",
+      "crime_signal_score": 0.73,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0093",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주식 거래. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주식 거래",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.729,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0094",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 모니터. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "모니터",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.727,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0095",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 거래량. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "거래량",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.725,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0096",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 캔들 차트. 사이버범죄 신호: 코인 차트.",
+    "metadata": {
+      "object_name": "캔들 차트",
+      "crime_signal": "코인 차트",
+      "crime_signal_score": 0.723,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0097",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 하단. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 하단",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.721,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0098",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 중앙. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 중앙",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.721,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0099",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 금액. 사이버범죄 신호: 송금 내역.",
+    "metadata": {
+      "object_name": "금액",
+      "crime_signal": "송금 내역",
+      "crime_signal_score": 0.715,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0100",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 화면 오른쪽 상단. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "화면 오른쪽 상단",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.714,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0101",
+    "crime_id": "C026",
+    "major_category": "기타 불법콘텐츠 범죄",
+    "sub_category": "기타 불법콘텐츠 범죄",
+    "crime_type": "기타 불법콘텐츠 범죄",
+    "source_type": "object_keyword",
+    "text": "기타 불법콘텐츠 범죄 관련 영상에서 자주 등장하는 시각적 객체: 텍스트. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "텍스트",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.697,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0102",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 그래프. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "그래프",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.687,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0103",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 문구류. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "문구류",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.678,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0104",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 안내문. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "안내문",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.67,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0105",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 광고. 사이버범죄 신호: 사기 광고.",
+    "metadata": {
+      "object_name": "광고",
+      "crime_signal": "사기 광고",
+      "crime_signal_score": 0.668,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0106",
+    "crime_id": "C004",
+    "major_category": "사이버 사기",
+    "sub_category": "이메일 무역사기",
+    "crime_type": "이메일 무역사기",
+    "source_type": "object_keyword",
+    "text": "이메일 무역사기 관련 영상에서 자주 등장하는 시각적 객체: 주가. 사이버범죄 신호: 주식 차트.",
+    "metadata": {
+      "object_name": "주가",
+      "crime_signal": "주식 차트",
+      "crime_signal_score": 0.666,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0107",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 광고판. 사이버범죄 신호: 사기 광고.",
+    "metadata": {
+      "object_name": "광고판",
+      "crime_signal": "사기 광고",
+      "crime_signal_score": 0.658,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0108",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 실내. 사이버범죄 신호: 리딩방.",
+    "metadata": {
+      "object_name": "실내",
+      "crime_signal": "리딩방",
+      "crime_signal_score": 0.655,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0109",
+    "crime_id": "C026",
+    "major_category": "기타 불법콘텐츠 범죄",
+    "sub_category": "기타 불법콘텐츠 범죄",
+    "crime_type": "기타 불법콘텐츠 범죄",
+    "source_type": "object_keyword",
+    "text": "기타 불법콘텐츠 범죄 관련 영상에서 자주 등장하는 시각적 객체: 글씨. 사이버범죄 신호: 문자 메시지.",
+    "metadata": {
+      "object_name": "글씨",
+      "crime_signal": "문자 메시지",
+      "crime_signal_score": 0.643,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0110",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 시간 표시. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "시간 표시",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.631,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0111",
+    "crime_id": "C008",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "스미싱 (Smishing)",
+    "crime_type": "스미싱",
+    "source_type": "object_keyword",
+    "text": "스미싱 관련 영상에서 자주 등장하는 시각적 객체: 리뷰. 사이버범죄 신호: SNS 게시물.",
+    "metadata": {
+      "object_name": "리뷰",
+      "crime_signal": "SNS 게시물",
+      "crime_signal_score": 0.629,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0112",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 서류. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "서류",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.627,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0113",
+    "crime_id": "C010",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "몸캠피싱",
+    "crime_type": "몸캠피싱",
+    "source_type": "object_keyword",
+    "text": "몸캠피싱 관련 영상에서 자주 등장하는 시각적 객체: 건물 외벽. 사이버범죄 신호: 웹사이트 화면.",
+    "metadata": {
+      "object_name": "건물 외벽",
+      "crime_signal": "웹사이트 화면",
+      "crime_signal_score": 0.622,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0114",
+    "crime_id": "C021",
+    "major_category": "사이버 도박",
+    "sub_category": "경마·경륜·경정",
+    "crime_type": "경마·경륜·경정",
+    "source_type": "object_keyword",
+    "text": "경마·경륜·경정 관련 영상에서 자주 등장하는 시각적 객체: 현수막. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "현수막",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.619,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0115",
+    "crime_id": "C017",
+    "major_category": "사이버 성폭력",
+    "sub_category": "불법 촬영물",
+    "crime_type": "불법 촬영물",
+    "source_type": "object_keyword",
+    "text": "불법 촬영물 관련 영상에서 자주 등장하는 시각적 객체: 이미지. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "이미지",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.617,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0116",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 패딩. 사이버범죄 신호: 리딩방.",
+    "metadata": {
+      "object_name": "패딩",
+      "crime_signal": "리딩방",
+      "crime_signal_score": 0.607,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0117",
+    "crime_id": "C011",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "메신저 이용사기",
+    "crime_type": "메신저 이용사기",
+    "source_type": "object_keyword",
+    "text": "메신저 이용사기 관련 영상에서 자주 등장하는 시각적 객체: 창문. 사이버범죄 신호: 컴퓨터 화면.",
+    "metadata": {
+      "object_name": "창문",
+      "crime_signal": "컴퓨터 화면",
+      "crime_signal_score": 0.606,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0118",
+    "crime_id": "C006",
+    "major_category": "사이버 금융범죄",
+    "sub_category": "피싱 (Phishing)",
+    "crime_type": "피싱",
+    "source_type": "object_keyword",
+    "text": "피싱 관련 영상에서 자주 등장하는 시각적 객체: 간판. 사이버범죄 신호: 경고 문구.",
+    "metadata": {
+      "object_name": "간판",
+      "crime_signal": "경고 문구",
+      "crime_signal_score": 0.604,
+      "auto_added": true
+    }
+  },
+  {
+    "doc_id": "OBJ_0119",
+    "crime_id": "C002",
+    "major_category": "사이버 사기",
+    "sub_category": "쇼핑몰 사기",
+    "crime_type": "쇼핑몰 사기",
+    "source_type": "object_keyword",
+    "text": "쇼핑몰 사기 관련 영상에서 자주 등장하는 시각적 객체: 가격 정보. 사이버범죄 신호: 거래 내역서.",
+    "metadata": {
+      "object_name": "가격 정보",
+      "crime_signal": "거래 내역서",
+      "crime_signal_score": 0.601,
+      "auto_added": true
+    }
   }
 ]
