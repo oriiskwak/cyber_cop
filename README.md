@@ -75,6 +75,21 @@ python cybercop_pipeline_AdotX.py --dir "C:\사이버 범죄 데이터\직거래
 
 ---
 
+## 처리 파이프라인
+
+```
+프레임 추출 → VLM 추론(OCR + 객체) → OCR 병합 → VLM OCR 후처리 → RAG 검색 → 레이블 자동 예측
+```
+
+1. **프레임 추출**: 영상에서 `sample_sec` 간격으로 최대 `max_frames`개 샘플링
+2. **VLM 추론**: 각 프레임에서 OCR 텍스트와 객체 목록 추출
+3. **OCR 병합**: 연속 프레임 간 유사도(≥0.5)로 중복 제거, 고유 줄만 누적
+4. **VLM OCR 후처리**: 병합된 OCR을 VLM에 재입력하여 오타·할루시네이션 교정 및 문장 연결 (@아이디, URL, 전화번호 등 식별자는 원문 보존)
+5. **RAG 검색**: BGE-m3 임베딩으로 범죄 유형 문서 검색 (FAISS)
+6. **레이블 예측**: RAG 최고 유사도 ≥ 0.5 → `abnormal`, 미만 → `normal` (rag 결과 없음)
+
+---
+
 ## 객체 인식 방식
 
 VLM이 자유롭게 출력한 객체명을 **임베딩 유사도(BGE-m3)**로 `rag/allowed_objects.json`에 정의된 허용 클래스(446종)에 매핑합니다.
@@ -129,13 +144,18 @@ normal,https://www.tiktok.com/@user/video/xxxxx
 {
   "id": "영상ID",
   "title": "영상 제목",
+  "gt_label": "abnormal",
   "label": "abnormal",
   "objects": ["휴대전화", "사람"],
-  "ocr": [
+  "ocr_frames": [
+    { "ts": "00:00", "text": "지금 투자하면 300% 수익 보장!" },
+    { "ts": "00:02", "text": "지금 투자하면 300% 수익 보장!\n@kakao_id" }
+  ],
+  "ocr_merged": [
     {
       "start": "00:00",
-      "end": "00:02",
-      "text": "지금 투자하면 300% 수익 보장!"
+      "end": "00:04",
+      "text": "지금 투자하면 300% 수익 보장!\n@kakao_id"
     }
   ],
   "rag": [
@@ -156,14 +176,19 @@ normal,https://www.tiktok.com/@user/video/xxxxx
 |---|---|---|
 | `id` | string | 영상/파일 고유 ID |
 | `title` | string | 영상 제목 또는 파일명 |
-| `label` | string | 입력 레이블 (abnormal / normal / manual) |
-| `objects` | string[] | 감지된 객체 목록 (한국어) |
-| `ocr[].start` | string | OCR 구간 시작 타임스탬프 |
-| `ocr[].end` | string | OCR 구간 종료 타임스탬프 |
-| `ocr[].text` | string | 추출된 OCR 텍스트 |
+| `gt_label` | string | 입력 레이블 (CSV의 label 또는 "manual") |
+| `label` | string | RAG 유사도 기반 자동 예측 레이블 (abnormal / normal) |
+| `objects` | string[] | 감지된 객체 목록 (한국어, 2프레임 이상 등장) |
+| `ocr_frames[].ts` | string | 프레임 타임스탬프 |
+| `ocr_frames[].text` | string | 해당 프레임의 원시 OCR 텍스트 |
+| `ocr_merged[].start` | string | 병합 구간 시작 타임스탬프 |
+| `ocr_merged[].end` | string | 병합 구간 종료 타임스탬프 |
+| `ocr_merged[].text` | string | VLM 후처리된 최종 OCR 텍스트 |
 | `rag[].crime_type` | string | 매칭된 범죄 유형 |
 | `rag[].similarity` | float | 코사인 유사도 (0~1) |
 | `rag[].risk_level` | float | 위험도 (0~1, 1이 최고) |
+
+> `label`이 `normal`인 경우 `rag` 필드는 빈 배열(`[]`)로 반환됩니다.
 
 ### 지원 범죄 유형 (26종)
 직거래 사기, 쇼핑몰 사기, 게임 사기, 이메일 무역사기, 기타 사이버 사기,
@@ -191,15 +216,13 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 | 파라미터 | 타입 | 기본값 | 설명 |
 |---|---|---|---|
 | `url` | string (Form) | 필수 | YouTube / TikTok 영상 URL |
-| `label` | string (Form) | `manual` | 레이블 (abnormal / normal / manual) |
 | `sample_sec` | float (Form) | `1.0` | 프레임 샘플링 간격 (초) |
 | `max_frames` | int (Form) | `10` | 최대 프레임 수 |
 | `top_k` | int (Form) | `3` | RAG 검색 상위 k |
 
 ```bash
 curl -X POST http://localhost:8000/api/video \
-  -F "url=https://www.youtube.com/shorts/영상ID" \
-  -F "label=abnormal"
+  -F "url=https://www.youtube.com/shorts/영상ID"
 ```
 
 ---
@@ -209,15 +232,13 @@ curl -X POST http://localhost:8000/api/video \
 | 파라미터 | 타입 | 기본값 | 설명 |
 |---|---|---|---|
 | `file` | UploadFile | 필수 | 영상(.mp4 등) 또는 이미지(.jpg 등) 파일 |
-| `label` | string (Form) | `manual` | 레이블 |
 | `sample_sec` | float (Form) | `1.0` | 프레임 샘플링 간격 (초) |
 | `max_frames` | int (Form) | `10` | 최대 프레임 수 |
 | `top_k` | int (Form) | `3` | RAG 검색 상위 k |
 
 ```bash
 curl -X POST http://localhost:8000/api/video/upload \
-  -F "file=@영상파일.mp4" \
-  -F "label=abnormal"
+  -F "file=@영상파일.mp4"
 ```
 
 ---
@@ -248,12 +269,15 @@ curl -X POST http://localhost:8000/api/video/csv \
     "id": "영상ID",
     "title": "영상 제목",
     "label": "abnormal",
-    "objects": ["smartphone", "chat_window", "person"],
-    "ocr": [
+    "objects": ["휴대전화", "채팅창", "사람"],
+    "ocr_frames": [
+      { "ts": "00:01", "text": "지금 투자하면 300% 수익 보장!" }
+    ],
+    "ocr_merged": [
       { "start": "00:01", "end": "00:03", "text": "지금 투자하면 300% 수익 보장!" }
     ],
     "rag": [
-      { "crime_type": "피싱", "text": "피싱: 개인정보 탈취를 위한 사기", "score": 0.87 }
+      { "crime_type": "피싱", "text": "피싱: 개인정보 탈취를 위한 사기", "similarity": 0.87 }
     ]
   }
 }
@@ -265,7 +289,10 @@ curl -X POST http://localhost:8000/api/video/csv \
   "message": "success",
   "count": 2,
   "results": [
-    { "id": "...", "title": "...", "label": "...", "objects": [], "ocr": [], "rag": [], "error": null },
+    {
+      "id": "...", "title": "...", "gt_label": "abnormal", "label": "abnormal",
+      "objects": [], "ocr_frames": [], "ocr_merged": [], "rag": [], "error": null
+    },
     { "url": "...", "label": "...", "error": "실패 사유" }
   ]
 }
@@ -277,10 +304,15 @@ curl -X POST http://localhost:8000/api/video/csv \
 |---|---|---|
 | `id` | string | 영상 고유 ID |
 | `title` | string | 영상 제목 |
-| `label` | string | 입력 레이블 |
-| `objects` | string[] | 감지된 객체 목록 (영어) |
-| `ocr[].start` | string | OCR 텍스트 시작 타임스탬프 |
-| `ocr[].end` | string | OCR 텍스트 종료 타임스탬프 |
-| `ocr[].text` | string | 추출된 OCR 텍스트 |
+| `label` | string | RAG 유사도 기반 자동 예측 (abnormal / normal) |
+| `gt_label` | string | CSV 입력 레이블 (배치 모드만) |
+| `objects` | string[] | 감지된 객체 목록 (한국어) |
+| `ocr_frames[].ts` | string | 프레임 타임스탬프 |
+| `ocr_frames[].text` | string | 프레임 원시 OCR 텍스트 |
+| `ocr_merged[].start` | string | 병합 구간 시작 타임스탬프 |
+| `ocr_merged[].end` | string | 병합 구간 종료 타임스탬프 |
+| `ocr_merged[].text` | string | VLM 후처리된 최종 OCR 텍스트 |
 | `rag[].crime_type` | string | 매칭된 범죄 유형 |
-| `rag[].score` | float | 코사인 유사도 (0~1) |
+| `rag[].similarity` | float | 코사인 유사도 (0~1) |
+
+> `label`이 `normal`인 경우 `rag` 필드는 빈 배열(`[]`)로 반환됩니다.

@@ -21,3 +21,8 @@ yt-dlp
 
 # HuggingFace
 huggingface_hub>=0.26.5
+
+# API 서버
+fastapi
+uvicorn[standard]
+python-multipart

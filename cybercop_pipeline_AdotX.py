@@ -86,6 +86,8 @@ CRIME_RISK_MAP = {
     "기타 불법콘텐츠 범죄": {"months": 8.0, "risk": 0.15}
 }
 
+ABNORMAL_THRESHOLD = 0.5  # RAG 최고 유사도가 이 이상이면 abnormal 판정
+
 # ──────────────────────────────────────────────
 
 # 프롬프트
@@ -345,6 +347,35 @@ def analyze_one_frame(
 
 
 # ──────────────────────────────────────────────
+# OCR VLM 후처리
+# ──────────────────────────────────────────────
+def postprocess_ocr_with_vlm(processor, model, merged_ocr: list) -> list:
+    if not merged_ocr:
+        return merged_ocr
+    input_json = json.dumps(merged_ocr, ensure_ascii=False, indent=2)
+    prompt = (
+        "다음은 동영상에서 시간대별로 추출된 원시 OCR 텍스트의 JSON 배열이다.\n"
+        "1. 오타와 할루시네이션(무의미한 반복)을 교정하라.\n"
+        "2. 전체 전후 문맥을 파악하여 끊어진 문장을 자연스럽게 하나로 연결하라.\n"
+        "3. 같은 내용이 이어지는 경우 하나로 병합하고 start/end 업데이트.\n"
+        "4. @아이디, URL, 해시태그, 전화번호, 계좌번호 등 식별자는 원문 그대로 보존하라.\n"
+        "5. 오직 교정된 JSON 배열만 출력하라.\n\n"
+        f"[원본 타임라인 데이터]\n{input_json}"
+    )
+    messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
+    text_input = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
+    inputs = processor(text=[text_input], return_tensors="pt").to(DEVICE)
+    with torch.inference_mode():
+        output_ids = model.generate(**inputs, max_new_tokens=2048, do_sample=False)
+    corrected = processor.batch_decode(output_ids[:, inputs["input_ids"].shape[1]:], skip_special_tokens=True)[0].strip()
+    try:
+        m = re.search(r'\[\s*\{.*?\}\s*\]', corrected, re.DOTALL)
+        return json.loads(m.group(0) if m else corrected)
+    except Exception:
+        return merged_ocr  # fallback
+
+
+# ──────────────────────────────────────────────
 # 단일 영상 처리 파이프라인
 # ──────────────────────────────────────────────
 def process_single_video(
@@ -387,17 +418,30 @@ def process_single_video(
             for obj in res["object_list"]:
                 obj_counts[obj] = obj_counts.get(obj, 0) + 1
 
-        # OCR 병합 (중복 제거)
-        merged_ocr = []
+        # 프레임별 OCR + 병합 (유사도 0.5 미만이면 새 구간, 이상이면 구간 확장 + 고유 줄 누적)
+        ocr_frames, merged_ocr = [], []
         for r in raw_results:
             if not r["text"] or r["text"] in ["텍스트 없음", "[불명확]"]:
                 continue
-            if not merged_ocr or difflib.SequenceMatcher(
-                None, merged_ocr[-1]["text"], r["text"]
-            ).ratio() < 0.9:
-                merged_ocr.append({"start": r["ts"], "end": r["ts"], "text": r["text"]})
+            ocr_frames.append({"ts": r["ts"], "text": r["text"]})
+            new_lines = [l.strip() for l in r["text"].split("\n") if l.strip()]
+            if not merged_ocr or difflib.SequenceMatcher(None, merged_ocr[-1]["_raw"], r["text"]).ratio() < 0.5:
+                merged_ocr.append({"start": r["ts"], "end": r["ts"], "_raw": r["text"], "_lines": new_lines})
             else:
                 merged_ocr[-1]["end"] = r["ts"]
+                merged_ocr[-1]["_raw"] = r["text"]
+                existing = set(merged_ocr[-1]["_lines"])
+                for line in new_lines:
+                    if line not in existing:
+                        merged_ocr[-1]["_lines"].append(line)
+                        existing.add(line)
+
+        for m in merged_ocr:
+            m["text"] = "\n".join(m.pop("_lines"))
+            m.pop("_raw")
+
+        # VLM 후처리: 오타/할루시네이션 교정 및 중복 병합
+        merged_ocr = postprocess_ocr_with_vlm(processor, model, merged_ocr)
 
         # Voting: 2프레임 이상 등장한 객체만 유지 (프레임이 1개인 경우는 예외)
         if len(frames) > 1:
@@ -405,10 +449,17 @@ def process_single_video(
         else:
             final_objs = list(obj_counts.keys())
 
-        # RAG 검색
-        ocr_all = " | ".join([m["text"] for m in merged_ocr])
+        # RAG 검색 + 레이블 자동 예측
+        ocr_all = " | ".join(m["text"] for m in merged_ocr)
         obj_all = ", ".join(final_objs)
-        mapped  = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
+        rag_candidates = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
+        max_sim = max((r["similarity"] for r in rag_candidates), default=0.0)
+        if max_sim >= ABNORMAL_THRESHOLD:
+            predicted_label = "abnormal"
+            mapped = rag_candidates
+        else:
+            predicted_label = "normal"
+            mapped = []
 
         # 결과 저장
         video_elapsed = time.time() - video_start
@@ -416,22 +467,24 @@ def process_single_video(
             "id": video_id,
             "url": url,
             "title": info.get("title"),
-            "label": label,
+            "gt_label": label,
+            "label": predicted_label,
             "objects": final_objs,
-            "ocr": merged_ocr,
+            "ocr_frames": ocr_frames,
+            "ocr_merged": merged_ocr,
             "rag": mapped,
             "total_inference_time": round(video_elapsed, 2)
         }
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
         with open(txt_path, "w", encoding="utf-8") as f:
-            f.write(f"VIDEO: {info.get('title')}\nURL: {url}\nLABEL: {label}\n\n[Mapped Crimes]\n")
+            f.write(f"VIDEO: {info.get('title')}\nURL: {url}\nGT_LABEL: {label}\nPREDICTED: {predicted_label}\n\n[Mapped Crimes]\n")
             for c in mapped:
                 f.write(f"- {c['crime_type']} ({c['similarity']:.4f})\n")
             f.write(f"\n[Detected Objects]\n{obj_all}\n\n[OCR Timeline]\n")
             for m in merged_ocr:
                 f.write(f"[{m['start']}~{m['end']}] {m['text']}\n")
-        print(f"  [RAG] 매칭된 범죄 유형:")
+        print(f"  [RAG] 매칭된 범죄 유형 (예측: {predicted_label}):")
         for c in mapped:
             print(f"    - {c['crime_type']} (score: {c['similarity']:.4f})")
         video_elapsed = time.time() - video_start
@@ -489,16 +542,30 @@ def process_local_file(
             for obj in res["object_list"]:
                 obj_counts[obj] = obj_counts.get(obj, 0) + 1
 
-        merged_ocr = []
+        # 프레임별 OCR + 병합 (유사도 0.5 미만이면 새 구간, 이상이면 구간 확장 + 고유 줄 누적)
+        ocr_frames, merged_ocr = [], []
         for r in raw_results:
             if not r["text"] or r["text"] in ["텍스트 없음", "[불명확]"]:
                 continue
-            if not merged_ocr or difflib.SequenceMatcher(
-                None, merged_ocr[-1]["text"], r["text"]
-            ).ratio() < 0.9:
-                merged_ocr.append({"start": r["ts"], "end": r["ts"], "text": r["text"]})
+            ocr_frames.append({"ts": r["ts"], "text": r["text"]})
+            new_lines = [l.strip() for l in r["text"].split("\n") if l.strip()]
+            if not merged_ocr or difflib.SequenceMatcher(None, merged_ocr[-1]["_raw"], r["text"]).ratio() < 0.5:
+                merged_ocr.append({"start": r["ts"], "end": r["ts"], "_raw": r["text"], "_lines": new_lines})
             else:
                 merged_ocr[-1]["end"] = r["ts"]
+                merged_ocr[-1]["_raw"] = r["text"]
+                existing = set(merged_ocr[-1]["_lines"])
+                for line in new_lines:
+                    if line not in existing:
+                        merged_ocr[-1]["_lines"].append(line)
+                        existing.add(line)
+
+        for m in merged_ocr:
+            m["text"] = "\n".join(m.pop("_lines"))
+            m.pop("_raw")
+
+        # VLM 후처리: 오타/할루시네이션 교정 및 중복 병합
+        merged_ocr = postprocess_ocr_with_vlm(processor, model, merged_ocr)
 
         # Voting: 2프레임 이상 등장한 객체만 유지 (프레임이 1개인 경우는 예외)
         if len(frames) > 1:
@@ -506,29 +573,39 @@ def process_local_file(
         else:
             final_objs = list(obj_counts.keys())
 
-        ocr_all = " | ".join([m["text"] for m in merged_ocr])
+        # RAG 검색 + 레이블 자동 예측
+        ocr_all = " | ".join(m["text"] for m in merged_ocr)
         obj_all = ", ".join(final_objs)
-        mapped  = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
+        rag_candidates = rag.search(f"[OCR]: {ocr_all} | [Objects]: {obj_all}", top_k=args.top_k)
+        max_sim = max((r["similarity"] for r in rag_candidates), default=0.0)
+        if max_sim >= ABNORMAL_THRESHOLD:
+            predicted_label = "abnormal"
+            mapped = rag_candidates
+        else:
+            predicted_label = "normal"
+            mapped = []
 
         payload = {
             "id": file_id,
             "url": str(file_path),
             "title": file_path.name,
-            "label": label,
+            "gt_label": label,
+            "label": predicted_label,
             "objects": final_objs,
-            "ocr": merged_ocr,
+            "ocr_frames": ocr_frames,
+            "ocr_merged": merged_ocr,
             "rag": mapped,
         }
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
         with open(txt_path, "w", encoding="utf-8") as f:
-            f.write(f"FILE: {file_path.name}\nLABEL: {label}\n\n[Mapped Crimes]\n")
+            f.write(f"FILE: {file_path.name}\nGT_LABEL: {label}\nPREDICTED: {predicted_label}\n\n[Mapped Crimes]\n")
             for c in mapped:
                 f.write(f"- {c['crime_type']} ({c['similarity']:.4f})\n")
             f.write(f"\n[Detected Objects]\n{obj_all}\n\n[OCR Timeline]\n")
             for m in merged_ocr:
                 f.write(f"[{m['start']}~{m['end']}] {m['text']}\n")
-        print(f"  [RAG] 매칭된 범죄 유형:")
+        print(f"  [RAG] 매칭된 범죄 유형 (예측: {predicted_label}):")
         for c in mapped:
             print(f"    - {c['crime_type']} (score: {c['similarity']:.4f})")
         file_elapsed = time.time() - file_start
